@@ -11,6 +11,7 @@ from project_watson.params import (
     MLFLOW_URI,
 )
 
+
 @simple_time_tracker
 def get_data(nrows=10000, local=False, optimize=False, **kwargs):
     """method to get the training data (or a portion of it) from google cloud bucket"""
@@ -22,14 +23,15 @@ def get_data(nrows=10000, local=False, optimize=False, **kwargs):
     df = pd.read_csv(path, nrows=nrows)
     return df
 
+
 @simple_time_tracker
 def get_snli(nrows=10000):
     df = load_dataset("snli")
-    df1 = pd.DataFrame(df['train'])
-    df2 = pd.DataFrame(df['test'])
+    df1 = pd.DataFrame(df["train"])
+    df2 = pd.DataFrame(df["test"])
     new_df = df1.append(df2, ignore_index=True)
-    new_df['lang_abv'] = 'eng'
-    new_df['language'] = 'English'
+    new_df["lang_abv"] = "eng"
+    new_df["language"] = "English"
     return new_df.head(nrows)
 
 

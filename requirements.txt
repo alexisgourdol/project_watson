@@ -1,9 +1,10 @@
-pandas
-numpy
-joblib
-dask
 nlp
-googletrans
+dask
+joblib
 transformers
+tensorflow
+pandas
+googletrans
+numpy
 protobuf
 scikit_learn

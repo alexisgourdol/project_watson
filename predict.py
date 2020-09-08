@@ -9,27 +9,26 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error
 
 PATH_INSIDE_BUCKET = "project_watsondata/train_1k.csv"
 
+
 def download_model(model_directory="PipelineTest", bucket=BUCKET_NAME, rm=True):
     client = storage.Client().bucket(bucket)
 
-    storage_location = '{}/{}/{}/{}'.format(
-            'models',
-            MODEL_NAME,
-            MODEL_VERSION,
-            'model.joblib')
+    storage_location = "{}/{}/{}/{}".format(
+        "models", MODEL_NAME, MODEL_VERSION, "model.joblib"
+    )
     blob = client.blob(storage_location)
-    blob.download_to_filename('model.joblib')
+    blob.download_to_filename("model.joblib")
     print(f"=> pipeline downloaded from storage")
-    model = joblib.load('model.joblib')
+    model = joblib.load("model.joblib")
     if rm:
-        os.remove('model.joblib')
+        os.remove("model.joblib")
     return model
 
 
 def evaluate_model(y, y_pred):
     MAE = round(mean_absolute_error(y, y_pred), 2)
     RMSE = round(sqrt(mean_squared_error(y, y_pred)), 2)
-    res = {'MAE': MAE, 'RMSE': RMSE}
+    res = {"MAE": MAE, "RMSE": RMSE}
     return res
 
 
@@ -52,7 +51,7 @@ def generate_submission_csv(folder="Pipeline", kaggle_upload=False):
         os.system(command)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     folder = "Pipeline"
     # model = download_model(folder)
     generate_submission_csv(folder, kaggle_upload=True)
