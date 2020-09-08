@@ -1,4 +1,17 @@
+<<<<<<< HEAD
 numpy
 googletrans
 dask
 pandas
+=======
+nlp
+dask
+joblib
+transformers
+tensorflow
+pandas
+googletrans
+numpy
+protobuf
+scikit_learn
+>>>>>>> master

@@ -1,7 +1,3 @@
-# !pip install googletrans, dask
-
-# https://www.kaggle.com/jpmiller/augmenting-data-with-translations
-
 import numpy as np
 import pandas as pd
 from googletrans import Translator
@@ -55,13 +51,3 @@ if __name__ == "__main__":
     print("Test translate FR, dest EN ==========")
     print(translate(words_test_fr, "en"))
     print(" ")
-
-    df = pd.read_csv('data/train.csv')
-    df = df.head(20)
-    print(df)
-
-
-
-
-
-
