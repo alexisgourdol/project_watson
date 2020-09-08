@@ -34,12 +34,12 @@ RUNTIME_VERSION=1.15
 
 ##### Package params  - - - - - - - - - - - - - - - - - - -
 
-PACKAGE_NAME=TaxiFareModel
+PACKAGE_NAME=project_watson
 FILENAME=trainer
 
 ##### Job - - - - - - - - - - - - - - - - - - - - - - - - -
 
-JOB_NAME=taxi_fare_training_pipeline_$(shell date +'%Y%m%d_%H%M%S')
+JOB_NAME=training_pipeline_$(shell date +'%Y%m%d_%H%M%S')
 
 
 
