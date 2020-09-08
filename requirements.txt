@@ -1,2 +1,9 @@
 pandas
+numpy
+joblib
+dask
+nlp
+googletrans
+transformers
 protobuf
+scikit_learn

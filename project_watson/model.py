@@ -1,4 +1,5 @@
-from transformers import XLMRobertaTokenizer, TFXLMRobertaModel
+from transformers import AutoTokenizer, TFAutoModel
+import tensorflow as tf
 
 def create_tokenizer(model_name = 'jplu/tf-xlm-roberta-base'):
     tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -38,8 +39,8 @@ def bert_encode(hypotheses, premises, tokenizer):
 
     return inputs
 
-def build_model(model_name):
-    bert_encoder = TFXLMRobertaModel.from_pretrained(model_name)
+def build_model(model_name, max_len):
+    bert_encoder = TFAutoModel.from_pretrained(model_name)
     input_word_ids = tf.keras.Input(shape=(max_len,), dtype=tf.int32, name="input_word_ids")
     input_mask = tf.keras.Input(shape=(max_len,), dtype=tf.int32, name="input_mask")
     input_type_ids = tf.keras.Input(shape=(max_len,), dtype=tf.int32, name="input_type_ids")
@@ -50,3 +51,11 @@ def build_model(model_name):
     model = tf.keras.Model(inputs=[input_word_ids, input_mask, input_type_ids], outputs=output)
     model.compile(tf.keras.optimizers.Adam(lr=1e-5), loss='sparse_categorical_crossentropy', metrics=['accuracy'])
     return model
+
+if __name__ == "__main__":
+    params = dict(
+        model_name='jplu/tf-xlm-roberta-base',
+        max_len = 50,
+    )
+    model = build_model(**params)
+    model.summary()

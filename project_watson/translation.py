@@ -1,7 +1,3 @@
-# !pip install googletrans, dask
-
-# https://www.kaggle.com/jpmiller/augmenting-data-with-translations
-
 import numpy as np
 import pandas as pd
 from googletrans import Translator
