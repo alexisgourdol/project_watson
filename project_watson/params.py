@@ -12,8 +12,7 @@ PROJECT_ID = "wagon-bootcamp-288408"
 
 ### GCP Storage - - - - - - - - - - - - - - - - - - - - - -
 
-BUCKET_NAME = "
-wagon-watson-perso"
+BUCKET_NAME = "wagon-watson-perso"
 
 ##### Data  - - - - - - - - - - - - - - - - - - - - - - - -
 

@@ -1,4 +1,4 @@
-'''The aim of this file is to define data import functions'''
+"""The aim of this file is to define data import functions"""
 import pandas as pd
 from google.cloud import storage
 
@@ -16,7 +16,6 @@ from TaxiFareModel.params import (
 @simple_time_tracker
 def get_data(nrows=10000, local=False, optimize=False, **kwargs):
     """method to get the training data (or a portion of it) from google cloud bucket"""
-    # Add Client() here
     client = storage.Client()
     if local:
         path = "data/train.csv"
@@ -24,6 +23,7 @@ def get_data(nrows=10000, local=False, optimize=False, **kwargs):
         path = "gs://{}/{}".format(BUCKET_NAME, BUCKET_TRAIN_DATA_PATH)
     df = pd.read_csv(path, nrows=nrows)
     return df
+
 
 if __name__ == "__main__":
     params = dict(
