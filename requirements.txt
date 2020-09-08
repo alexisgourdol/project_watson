@@ -1,11 +1,4 @@
-pip>=9
-setuptools>=26
-wheel>=0.29
+numpy
+googletrans
+dask
 pandas
-pytest
-coverage
-flake8
-black
-yapf
-python-gitlab
-twine
