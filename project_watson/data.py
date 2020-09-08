@@ -2,9 +2,9 @@
 import pandas as pd
 from google.cloud import storage
 
-from project_watson.utils import simple_time_tracker
+from utils.py import simple_time_tracker
 
-from project_watson.params import (
+from params.py import (
     BUCKET_NAME,
     BUCKET_TRAIN_DATA_PATH,
     MODEL_NAME,

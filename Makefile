@@ -2,20 +2,23 @@
 #             PARAMS
 # ----------------------------------
 
-BUCKET_NAME=wagon-ml-edgarminault-gcp
+BUCKET_NAME=wagon-watson-perso
 
 ##### Data  - - - - - - - - - - - - - - - - - - - - - - - -
 
-# not required here
+TRAIN_PATH=project_watson/data/train.csv
+TEST_PATH=project_watson/data/test.csv
+UPLOADED_TRAIN_NAME=train.csv
+UPLOADED_TEST_NAME=test.csv
 
 ##### Training  - - - - - - - - - - - - - - - - - - - - - -
 
 # will store the packages uploaded to GCP for the training
 BUCKET_TRAINING_FOLDER='trainings'
 
-##### Model - - - - - - - - - - - - - - - - - - - - - - - -
+##### Project  - - - - - - - - - - - - - - - - - - - - - - -
 
-# not required here
+PROJECT_ID=wagon-bootcamp-288408
 
 ### GCP AI Platform - - - - - - - - - - - - - - - - - - - -
 
@@ -37,6 +40,8 @@ FILENAME=trainer
 ##### Job - - - - - - - - - - - - - - - - - - - - - - - - -
 
 JOB_NAME=taxi_fare_training_pipeline_$(shell date +'%Y%m%d_%H%M%S')
+
+
 
 # ----------------------------------
 #          INSTALL & TEST
@@ -123,3 +128,16 @@ pypi_test:
 
 pypi:
 	@twine upload dist/* -u lologibus2
+
+
+# ----------------------------------
+#          GCP project setup
+# ----------------------------------
+
+create_bucket:
+	-@gsutil mb -l ${REGION} -p ${PROJECT_ID} gs://${BUCKET_NAME}
+
+upload_data:
+	# -@gsutil cp train_1k.csv gs://wagon-ml-my-bucket-name/data/train_1k.csv
+	-@gsutil cp ${TRAIN_PATH} gs://${BUCKET_NAME}/${BUCKET_FOLDER}/${UPLOADED_TRAIN_NAME}
+	-@gsutil cp ${TEST_PATH} gs://${BUCKET_NAME}/${BUCKET_FOLDER}/${UPLOADED_TEST_NAME}
