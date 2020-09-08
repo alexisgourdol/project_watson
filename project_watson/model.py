@@ -1,14 +1,16 @@
-def create_tokenizer(model_name):
+from transformers import XLMRobertaTokenizer, TFXLMRobertaModel
+
+def create_tokenizer(model_name = 'jplu/tf-xlm-roberta-base'):
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     return tokenizer
 
-def encode_sentence(s):
+def encode_sentence(s, model_name):
+    create_tokenizer(model_name)
     tokens = list(tokenizer.tokenize(s))
     tokens.append('[SEP]')
     return tokenizer.convert_tokens_to_ids(tokens)
 
 def bert_encode(hypotheses, premises, tokenizer):
-
     num_examples = len(hypotheses)
 
     sentence1 = tf.ragged.constant([
