@@ -109,6 +109,15 @@ gcp_submit_training:
 		--region ${REGION} \
 		--stream-logs
 
+# Create model version based on that SavedModel directory
+create_model_version:
+	gcloud ai-platform versions create $MODEL_VERSION \
+	  --model $MODEL_NAME \
+	  --runtime-version 1.15 \
+	  --python-version 3.7 \
+	  --framework tensorflow \
+	  --origin $SAVED_MODEL_PATH
+
 clean:
 	@rm -f */version.txt
 	@rm -f .coverage

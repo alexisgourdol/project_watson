@@ -13,7 +13,7 @@ import pandas as pd
 import numpy as np
 
 from project_watson.data import get_data, get_snli
-from project_watson.params import MODEL_VERSION, MLFLOW_URI
+from project_watson.params import MLFLOW_URI
 from project_watson.utils import simple_time_tracker
 from project_watson.model import *
 
