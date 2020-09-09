@@ -25,16 +25,31 @@ BUCKET_TRAIN_DATA_PATH = "data/train.csv"
 
 # not required here
 
+##### Experiment  - - - - - - - - - - - - - - - - - - - - -
+
+# model folder name (will contain the folders for all trained model versions)
+MODEL_NAME = "watson-project"
+
+# model version folder name (where the trained model.joblib file will be stored)
+
+
 ##### Model - - - - - - - - - - - - - - - - - - - - - - - -
 
 # model folder name (will contain the folders for all trained model versions)
 MODEL_NAME = "watson-project"
 
 # model version folder name (where the trained model.joblib file will be stored)
-MODEL_VERSION = "Pipeline"
+
+# not required here.
 
 ### GCP AI Platform - - - - - - - - - - - - - - - - - - - -
 
 # not required here
+
+### - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+### MLFLOW Platform - - - - - - - - - - - - - - - - - - - -
+
+MLFLOW_URI = "https://mlflow.lewagon.co/"
 
 ### - - - - - - - - - - - - - - - - - - - - - - - - - - - -

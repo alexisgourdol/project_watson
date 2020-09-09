@@ -141,3 +141,7 @@ upload_data:
 	# -@gsutil cp train_1k.csv gs://wagon-ml-my-bucket-name/data/train_1k.csv
 	-@gsutil cp ${TRAIN_PATH} gs://${BUCKET_NAME}/${BUCKET_FOLDER}/${UPLOADED_TRAIN_NAME}
 	-@gsutil cp ${TEST_PATH} gs://${BUCKET_NAME}/${BUCKET_FOLDER}/${UPLOADED_TEST_NAME}
+
+create_model:
+	-@gcloud ai-platform models create XLMBERT \
+  	--regions ${REGION}

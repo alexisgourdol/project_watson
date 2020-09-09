@@ -1,13 +1,21 @@
+####### INUTILE À SUPPRIMER
+
 from transformers import AutoTokenizer, TFAutoModel
 import tensorflow as tf
 
 
 def create_tokenizer(model_name="jplu/tf-xlm-roberta-base"):
+    '''
+    method to initialize the tokenizer of the nlp task.
+    '''
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     return tokenizer
 
 
 def encode_sentence(s, model_name):
+    '''
+    method to encode a sentence accordingly to the created tokenizer
+    '''
     create_tokenizer(model_name)
     tokens = list(tokenizer.tokenize(s))
     tokens.append("[SEP]")
@@ -39,7 +47,7 @@ def bert_encode(hypotheses, premises, tokenizer):
     return inputs
 
 
-def build_model(model_name, max_len):
+def build_model(model_name):
     bert_encoder = TFAutoModel.from_pretrained(model_name)
     input_word_ids = tf.keras.Input(
         shape=(max_len,), dtype=tf.int32, name="input_word_ids"
