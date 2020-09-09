@@ -3,11 +3,11 @@ import pandas as pd
 from google.cloud import storage
 from nlp import load_dataset
 from project_watson.utils import simple_time_tracker
+import tensorflow as tf
 from project_watson.params import (
     BUCKET_NAME,
     BUCKET_TRAIN_DATA_PATH,
     MODEL_NAME,
-    MODEL_VERSION,
     MLFLOW_URI,
 )
 

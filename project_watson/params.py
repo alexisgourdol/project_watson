@@ -36,7 +36,6 @@ MODEL_NAME = "watson-project"
 ##### Model - - - - - - - - - - - - - - - - - - - - - - - -
 
 # model folder name (will contain the folders for all trained model versions)
-MODEL_NAME = "watson-project"
 
 # model version folder name (where the trained model.joblib file will be stored)
 
