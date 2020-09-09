@@ -32,11 +32,20 @@ def translate(words, dest):
 
 
 def trans_parallel(df, dest):
+    """Gets a df as input. Translates premises and hypo using translate().
+    Dask package optimizes the translation with bag objects, that make
+    parallelization easy"""
+
+    # create dask.bag objects
     premise_bag = bag.from_sequence(df.premise.tolist()).map(translate, dest)
     hypo_bag = bag.from_sequence(df.hypothesis.tolist()).map(translate, dest)
+
     with diagnostics.ProgressBar():
+        # compute => perform the translations
         premises = premise_bag.compute()
         hypos = hypo_bag.compute()
+
+    # replace "premise", "hypothesis" in the df with translated texts
     df[["premise", "hypothesis"]] = list(zip(premises, hypos))
     return df
 
