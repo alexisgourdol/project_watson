@@ -1,5 +1,6 @@
 from transformers import AutoTokenizer, TFAutoModel
 import tensorflow as tf
+import numpy as np
 
 
 def create_tokenizer(model_name="jplu/tf-xlm-roberta-base"):
@@ -7,8 +8,8 @@ def create_tokenizer(model_name="jplu/tf-xlm-roberta-base"):
     return tokenizer
 
 
-def encode_sentence(s, model_name):
-    create_tokenizer(model_name)
+def encode_sentence(s, model_name="jplu/tf-xlm-roberta-base"):
+    tokenizer = create_tokenizer(model_name)
     tokens = list(tokenizer.tokenize(s))
     tokens.append("[SEP]")
     return tokenizer.convert_tokens_to_ids(tokens)
