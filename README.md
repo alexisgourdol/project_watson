@@ -7,7 +7,9 @@
 Please document the project the better you can.
 
 # Info on the data
-
+- train.csv, test.csv, sample_submission.csv from Kaggle competition
+- train_trans_to_en.csv from Kaggle Notebook : https://www.kaggle.com/tuckerarrants/contradictorytranslatedtrain?select=train_en.csv
+- test_trans_to_en.csv generated using functions in translation.py (in a jupyter notebook :/, bad style)
 
 # Startup the project
 
