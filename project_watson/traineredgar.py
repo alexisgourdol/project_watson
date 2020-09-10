@@ -197,7 +197,10 @@ if __name__ == '__main__':
         accelerator = "TPU",
         myluckynumber = 13)
 
+    print(colored("############  Training model   ############", "red"))
     conf.train()
+    print(colored("############   Saving model    ############", "green"))
+    conf.save_model()
 
     # test = pd.read_csv("data/test.csv")
     # test_input = bert_encode(test.premise.values, test.hypothesis.values, tokenizer)

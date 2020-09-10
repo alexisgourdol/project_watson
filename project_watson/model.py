@@ -44,7 +44,7 @@ def bert_encode(hypotheses, premises, tokenizer):
     return inputs
 
 
-def build_model(model_name):
+def build_model(model_name, max_len):
     bert_encoder = TFAutoModel.from_pretrained(model_name)
     input_word_ids = tf.keras.Input(
         shape=(max_len,), dtype=tf.int32, name="input_word_ids"

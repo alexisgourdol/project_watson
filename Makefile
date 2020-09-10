@@ -14,7 +14,7 @@ UPLOADED_TEST_NAME=test.csv
 ##### Training  - - - - - - - - - - - - - - - - - - - - - -
 
 # will store the packages uploaded to GCP for the training
-BUCKET_TRAINING_FOLDER='trainings'
+BUCKET_TRAINING_FOLDER=trainings
 
 ##### Project  - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -24,13 +24,13 @@ PROJECT_ID=wagon-bootcamp-288408
 
 ##### Machine configuration - - - - - - - - - - - - - - - -
 
-REGION=europe-west1
+REGION=europe-west4
 
 ##### Paython params  - - - - - - - - - - - - - - - - - - -
 
 PYTHON_VERSION=3.7
-FRAMEWORK=scikit-learn
-RUNTIME_VERSION=1.15
+FRAMEWORK=
+RUNTIME_VERSION=2.1
 
 ##### Package params  - - - - - - - - - - - - - - - - - - -
 
@@ -107,7 +107,11 @@ gcp_submit_training:
 		--python-version=${PYTHON_VERSION} \
 		--runtime-version=${RUNTIME_VERSION} \
 		--region ${REGION} \
-		--stream-logs
+		--stream-logs \
+		--scale-tier=BASIC_TPU \
+		-- \
+		--distribution_strategy=tpu \
+		--worker-machine-type=cloud_tpu
 
 # Create model version based on that SavedModel directory
 create_model_version:
