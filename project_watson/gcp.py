@@ -3,7 +3,7 @@ import os
 from google.cloud import storage
 from termcolor import colored
 
-from TaxiFareModel.params import BUCKET_NAME, MODEL_NAME, MODEL_VERSION
+from project_watson.params import BUCKET_NAME, MODEL_NAME, MODEL_VERSION
 
 
 def storage_upload(model_version, bucket=BUCKET_NAME, rm=False):
