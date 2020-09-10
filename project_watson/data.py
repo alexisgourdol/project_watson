@@ -3,11 +3,11 @@ import pandas as pd
 from google.cloud import storage
 from nlp import load_dataset
 from project_watson.utils import simple_time_tracker
+import tensorflow as tf
 from project_watson.params import (
     BUCKET_NAME,
     BUCKET_TRAIN_DATA_PATH,
     MODEL_NAME,
-    MODEL_VERSION,
     MLFLOW_URI,
 )
 
@@ -26,6 +26,10 @@ def get_data(nrows=10000, local=True, optimize=False, **kwargs):
 
 @simple_time_tracker
 def get_snli(nrows=10000):
+    '''
+    method to get the snli dataset from hugginface library in order to perform data
+    augmentation and enhance the accuracy of XLMRoberta and RoBERTa models.
+    '''
     df = load_dataset("snli")
     df1 = pd.DataFrame(df["train"])
     df2 = pd.DataFrame(df["test"])
@@ -33,6 +37,14 @@ def get_snli(nrows=10000):
     new_df["lang_abv"] = "eng"
     new_df["language"] = "English"
     return new_df.head(nrows)
+
+def encode_sentence(s, tokenizer):
+    '''
+    method to encode a sentence accordingly to the created tokenizer
+    '''
+    tokens = list(tokenizer.tokenize(s))
+    tokens.append("[SEP]")
+    return tokenizer.convert_tokens_to_ids(tokens)
 
 
 if __name__ == "__main__":

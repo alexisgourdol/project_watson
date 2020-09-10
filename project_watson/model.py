@@ -1,12 +1,16 @@
+####### INUTILE À SUPPRIMER
+
 from transformers import AutoTokenizer, TFAutoModel
 import tensorflow as tf
 import numpy as np
 
 
 def create_tokenizer(model_name="jplu/tf-xlm-roberta-base"):
+    '''
+    method to initialize the tokenizer of the nlp task.
+    '''
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     return tokenizer
-
 
 def encode_sentence(s, model_name="jplu/tf-xlm-roberta-base"):
     tokenizer = create_tokenizer(model_name)
