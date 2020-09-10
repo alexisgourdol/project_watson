@@ -38,15 +38,6 @@ def get_snli(nrows=10000):
     new_df["language"] = "English"
     return new_df.head(nrows)
 
-def encode_sentence(s, tokenizer):
-    '''
-    method to encode a sentence accordingly to the created tokenizer
-    '''
-    tokens = list(tokenizer.tokenize(s))
-    tokens.append("[SEP]")
-    return tokenizer.convert_tokens_to_ids(tokens)
-
-
 if __name__ == "__main__":
     params = dict(
         nrows=1000,  # set to False to get data from GCP (Storage or BigQuery)
