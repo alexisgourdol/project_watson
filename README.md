@@ -1,12 +1,15 @@
 # Data analysis
 - Document here the project: project_watson
-- Description: Project Description
-- Data Source:
-- Type of analysis:
+- Description: NLI model that assigns labels of 0, 1, or 2 (corresponding to entailment, neutral, and contradiction) to pairs of premises and hypotheses
+- Data Source: https://www.kaggle.com/c/contradictory-my-dear-watson/data
+- Type of analysis: text data, multiclass classification, categorizationaccuracy
 
 Please document the project the better you can.
 
-# Stratup the project
+# Info on the data
+
+
+# Startup the project
 
 The initial setup.
 
@@ -61,10 +64,10 @@ Functionnal test with a script:
 ```bash
   $ cd /tmp
   $ project_watson-run
-``` 
+```
 
 # Continus integration
-## Github 
+## Github
 Every push of `master` branch will execute `.github/workflows/pythonpackages.yml` docker jobs.
 ## Gitlab
 Every push of `master` branch will execute `.gitlab-ci.yml` docker jobs.
