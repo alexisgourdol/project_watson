@@ -158,3 +158,8 @@ upload_data:
 create_model:
 	-@gcloud ai-platform models create XLMBERT \
   	--regions ${REGION}
+
+
+
+run_streamlit:
+   @streamlit run app.py
