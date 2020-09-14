@@ -58,3 +58,6 @@ st.write(pd.DataFrame(data={
     "label" : [0,1,2],
     "evaluation" : ["Entailment","Neutral","Contradiction"]
     }).set_index("evaluation"))
+
+if __name__ == "__main__":
+    main()
