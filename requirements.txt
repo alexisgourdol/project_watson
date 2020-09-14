@@ -12,3 +12,4 @@ transformers
 numpy
 protobuf
 scikit_learn
+streamlit
