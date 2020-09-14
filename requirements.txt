@@ -1,15 +1,3 @@
-googletrans
-tensorflow
-category_encoders
-mlflow
-termcolor
 pandas
-Keras
-nlp
-joblib
-dask
-transformers
 numpy
-protobuf
-scikit_learn
 streamlit
