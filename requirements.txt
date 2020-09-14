@@ -1,3 +1,14 @@
 pandas
 numpy
-streamlit
+googletrans
+tensorflow
+category_encoders
+mlflow
+termcolor
+Keras
+nlp
+joblib
+dask
+transformers
+protobuf
+scikit_learn
